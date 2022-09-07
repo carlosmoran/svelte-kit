@@ -1,5 +1,5 @@
 {
-	"name": "kit.svelte.dev",
+	"name": "kit-cm",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
