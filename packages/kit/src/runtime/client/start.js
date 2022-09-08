@@ -34,9 +34,12 @@ export async function start({ env, hydrate, paths, target, trailing_slash }) {
 	if (hydrate) {
 		performance.mark('Start Hydrate');
 		await client._hydrate(hydrate);
+		performance.measure('Hydrate Timing','Start Hydrate');
 	} else {
 		client.goto(location.href, { replaceState: true });
 	}
 	performance.mark('Start Router');
 	client._start_router();
+	performance.measure('Router Time','Start Router');
+	performance.measure('Total Init','Svelte Init');
 }
