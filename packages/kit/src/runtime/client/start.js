@@ -28,13 +28,15 @@ export async function start({ env, hydrate, paths, target, trailing_slash }) {
 		trailing_slash
 	});
 
+	performance.mark('Svelte Init');
 	init({ client });
 
 	if (hydrate) {
+		performance.mark('Start Hydrate');
 		await client._hydrate(hydrate);
 	} else {
 		client.goto(location.href, { replaceState: true });
 	}
-
+	performance.mark('Start Router');
 	client._start_router();
 }
