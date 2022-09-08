@@ -19,6 +19,9 @@ export async function start({ env, hydrate, paths, target, trailing_slash }) {
 	set_public_env(env);
 	set_paths(paths);
 
+	console.log('Starting client');
+	performance.mark('Start JS');
+
 	const client = create_client({
 		target,
 		base: paths.base,
